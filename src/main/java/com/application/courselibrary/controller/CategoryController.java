@@ -61,5 +61,28 @@ public class CategoryController {
         return "redirect:/categories";
     }
 
+    @GetMapping("remove-category/{id}")
+    public String deleteCategory(@PathVariable long id,Model model){
+        categoryService.deleteCategory(id);
+        return "redirect:/categories";
+    }
+
+    @GetMapping("/add-category")
+    public String addCategory(Model model) {
+        model.addAttribute("category", new Category());
+        return "add-category";
+    }
+
+    @PostMapping("/save-category")
+    public String saveCategory(Category category, BindingResult result) {
+
+        if (result.hasErrors()) {
+            return "add-category";
+        }
+
+        categoryService.createCategory(category);
+
+        return "redirect:/categories";
+    }
 
 }

@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Update Category</title>
+    <title>Add Category</title>
 
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
@@ -22,24 +22,22 @@
     <div class="card">
         <div class="card-body">
 
-            <h3>Update Category</h3>
+            <h3>Add Category</h3>
 
-            <form th:action="@{/save-update-category/{id}(id=${category.id})}"
+            <form th:action="@{/save-category}"
                   th:object="${category}"
                   method="post">
-
-                <!-- Hidden ID -->
-                <input type="hidden" th:field="*{id}">
 
                 <div class="mb-3">
                     <label class="form-label">Category Name</label>
                     <input type="text"
                            th:field="*{name}"
-                           class="form-control">
+                           class="form-control"
+                           placeholder="Enter category name">
                 </div>
 
-                <button type="submit" class="btn btn-primary">
-                    Update Category
+                <button type="submit" class="btn btn-success">
+                    Save Category
                 </button>
 
                 <a th:href="@{/categories}"
@@ -54,4 +52,4 @@
 </div>
 
 </body>
-</html>x`
+</html>
