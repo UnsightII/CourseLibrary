@@ -30,7 +30,7 @@ public class AuthorService {
         authorRepository.save(author);
     }
 
-    public void deleteBook(long id){
+    public void deleteAuthor(long id){
         Author author = authorRepository.findById(id).orElseThrow(() -> new RuntimeException("Author not found"));
         authorRepository.deleteById(author.getId());
     }
