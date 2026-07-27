@@ -62,7 +62,7 @@ public class BookController {
         Book book = bookService.findBookById(id);
 
         model.addAttribute("book", book);
-        model.addAttribute("categories", categoryService.FindAllCategories());
+        model.addAttribute("categories", categoryService.findAllCategories());
         model.addAttribute("publishers", publisherService.findAllPublishers());
         model.addAttribute("authors", authorService.findAllAuthor());
 
@@ -82,7 +82,7 @@ public class BookController {
     @GetMapping("/add-book")
     public String addBook(Book book,Model model) {
 
-        model.addAttribute("categories", categoryService.FindAllCategories());
+        model.addAttribute("categories", categoryService.findAllCategories());
         model.addAttribute("publishers", publisherService.findAllPublishers());
         model.addAttribute("authors", authorService.findAllAuthor());
 
